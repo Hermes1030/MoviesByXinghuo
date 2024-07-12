@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>首页</title>
+{% endblock %}
+
+{% block content %}
+    <h1>首页</h1>
+    <div class="spark">
+        <div style="width: 98%; height: 500px; border: 1px solid #ccc; padding: 10px; overflow-y: scroll;">
+            {% for item in data %}
+                <span style="color: #001;">{{ item.role }}</span>
+                <div style="background-color: #f0f0f0; padding: 10px; margin-bottom: 10px;">
+                    {{ item.content }}
+                </div>
+            {% endfor %}
+        </div>
+        <div style="padding: 10px;">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="content" style="width: 90%; padding: 5px;"/>
+                <button type="submit" stype="padding: 5px 10px;">提交</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script></script>
+
+{% endblock %}
